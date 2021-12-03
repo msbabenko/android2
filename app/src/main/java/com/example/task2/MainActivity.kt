@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputLayout
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,7 +23,8 @@ class MainActivity : AppCompatActivity() {
             val userName = userNameTextInputView.editText?.text?.toString()
             val maskedUserName =
                 if(userName.isNullOrEmpty()) "Somebody"
-                else userName[0].toUpperCase()+userName.substring(1).toLowerCase()
+                else userName[0].uppercaseChar() + userName.substring(1)
+                    .lowercase(Locale.getDefault())
 
 
             val usersAsString = StringBuilder("")
